@@ -40,7 +40,7 @@ module ActionView
         when :static
           text(exp[1])
         when :mustache
-          send("on_#{exp[1]}", *exp[2..-1])
+          send("on_#{exp[1]}", *exp[2..-3])
         else
           raise "Unhandled exp: #{exp.first}"
         end
