@@ -49,7 +49,7 @@ module ActionView
       # content - Array of section content tokens
       #
       # Returns String.
-      def on_section(name, content, raw, delims)
+      def on_section(name, content, raw, delims, *rest)
         "v = #{compile!(name)}; ctx._eval_section(self, @output_buffer, v) {\n#{compile!(content)}\n}; "
       end
 
