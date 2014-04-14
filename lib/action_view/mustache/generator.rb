@@ -31,9 +31,6 @@ module ActionView
       #
       # Returns String.
       def compile!(exp)
-        puts "***DEBUGGING*****"
-        puts exp
-        puts "****END*****"
         case exp.first
         when :multi
           exp[1..-1].map { |e| compile!(e) }.join
