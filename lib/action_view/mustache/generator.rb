@@ -69,7 +69,7 @@ module ActionView
       # indentation - String of indentation level
       #
       # Returns String.
-      def on_partial(name, indentation)
+      def on_partial(name, indentation, *rest)
         "@output_buffer.concat(render(:partial => #{name.inspect}));\n"
       end
 
@@ -78,7 +78,7 @@ module ActionView
       # name - String name of tag
       #
       # Returns String.
-      def on_utag(name)
+      def on_utag(name, *rest)
         "v = #{compile!(name)}; ctx._eval_utag(@output_buffer, v); "
       end
 
@@ -87,7 +87,7 @@ module ActionView
       # name - String name of tag
       #
       # Returns String.
-      def on_etag(name)
+      def on_etag(name, *rest)
         "v = #{compile!(name)}; ctx._eval_etag(@output_buffer, v); "
       end
 
